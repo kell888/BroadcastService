@@ -1,0 +1,535 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonLib</name>
+    </assembly>
+    <members>
+        <member name="T:Logs">
+            <summary>
+            日志处理静态类
+            </summary>
+        </member>
+        <member name="M:Logs.Error(System.String)">
+            <summary>
+            写入错误级别的日志
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:Logs.LogDataBase(NLog.LogLevel,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            写入错误级别的日志到数据库(暂时还未使用)
+            </summary>
+            <param name="level"></param>
+            <param name="appName"></param>
+            <param name="moduleName"></param>
+            <param name="procName"></param>
+            <param name="logTitle"></param>
+            <param name="logMessage"></param>
+        </member>
+        <member name="M:Logs.Trace(System.String)">
+            <summary>
+            写入跟踪级别的日志
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:Logs.Info(System.String)">
+            <summary>
+            写入消息级别的日志
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:Logs.Init">
+            <summary>
+            应用程序启动的日志标识
+            </summary>
+        </member>
+        <member name="T:CommonLib.MsgClass">
+            <summary>
+            消息对象类
+            </summary>
+        </member>
+        <member name="M:CommonLib.MsgClass.#ctor(System.String,System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="source"></param>
+            <param name="message"></param>
+            <param name="link"></param>
+        </member>
+        <member name="P:CommonLib.MsgClass.Source">
+            <summary>
+            消息来源，最大长度50Byte
+            </summary>
+        </member>
+        <member name="P:CommonLib.MsgClass.Message">
+            <summary>
+            消息内容，从301Byte开始的数据
+            </summary>
+        </member>
+        <member name="P:CommonLib.MsgClass.Link">
+            <summary>
+            消息携带的超链接，最大长度250Byte
+            </summary>
+        </member>
+        <member name="P:CommonLib.MsgClass.Time">
+            <summary>
+            消息时间
+            </summary>
+        </member>
+        <member name="T:CommonLib.RemotingCommon">
+            <summary>
+            Remoteing公共类
+            </summary>
+        </member>
+        <member name="M:CommonLib.RemotingCommon.SetRemoteSharedObject``1(``0,System.String)">
+            <summary>
+            将指定的对象设置为远程共享对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sharedObject"></param>
+            <param name="ObjURI"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonLib.RemotingCommon.UnsetRemoteSharedObject``1(System.Runtime.Remoting.ObjRef)">
+            <summary>
+            将远程代理取消远程共享
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="objRef"></param>
+        </member>
+        <member name="T:CommonLib.RemotingTcp">
+            <summary>
+            Tcp通道的Remoting
+            </summary>
+        </member>
+        <member name="M:CommonLib.RemotingTcp.RegSvr(System.Int32,System.Boolean)">
+            <summary>
+            服务器端注册指定的服务
+            </summary>
+            <param name="port"></param>
+            <param name="ensureSecurity"></param>
+        </member>
+        <member name="M:CommonLib.RemotingTcp.RegCli(System.Boolean)">
+            <summary>
+            客户端注册通信通道
+            </summary>
+            <param name="ensureSecurity"></param>
+        </member>
+        <member name="M:CommonLib.RemotingTcp.RegSvrObj``1(System.String,System.Runtime.Remoting.WellKnownObjectMode)">
+            <summary>
+            服务器端注册远程对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="uri"></param>
+            <param name="wkom"></param>
+        </member>
+        <member name="M:CommonLib.RemotingTcp.RegCliObj``1(System.String)">
+            <summary>
+            客户端注册远程对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="uri"></param>
+        </member>
+        <member name="M:CommonLib.RemotingTcp.GetRemoteObject``1(System.Net.IPAddress,System.Int32,System.String)">
+            <summary>
+            获取远程对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ip"></param>
+            <param name="port"></param>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonLib.RemotingHttp">
+            <summary>
+            Http通道的Remoting
+            </summary>
+        </member>
+        <member name="M:CommonLib.RemotingHttp.RegSvr(System.Int32)">
+            <summary>
+            服务器端注册指定的服务
+            </summary>
+            <param name="port"></param>
+        </member>
+        <member name="M:CommonLib.RemotingHttp.RegCli">
+            <summary>
+            客户端注册通信通道
+            </summary>
+        </member>
+        <member name="M:CommonLib.RemotingHttp.RegSvrObj``1(System.String,System.Runtime.Remoting.WellKnownObjectMode)">
+            <summary>
+            服务器端注册远程对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="uri"></param>
+            <param name="wkom"></param>
+        </member>
+        <member name="M:CommonLib.RemotingHttp.RegCliObj``1(System.String)">
+            <summary>
+            客户端注册远程对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="uri"></param>
+        </member>
+        <member name="M:CommonLib.RemotingHttp.GetRemoteObject``1(System.Net.IPAddress,System.Int32,System.String)">
+            <summary>
+            获取远程对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ip"></param>
+            <param name="port"></param>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonLib.RemotingIpc">
+            <summary>
+            Ipc通道的Remoting
+            </summary>
+        </member>
+        <member name="M:CommonLib.RemotingIpc.RegSvr(System.String,System.Boolean)">
+            <summary>
+            服务器端注册指定的服务
+            </summary>
+            <param name="portName"></param>
+            <param name="ensureSecurity"></param>
+        </member>
+        <member name="M:CommonLib.RemotingIpc.RegCli(System.Boolean)">
+            <summary>
+            客户端注册通信通道
+            </summary>
+            <param name="ensureSecurity"></param>
+        </member>
+        <member name="M:CommonLib.RemotingIpc.RegSvrObj``1(System.String,System.Runtime.Remoting.WellKnownObjectMode)">
+            <summary>
+            服务器端注册指定的服务
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="uri"></param>
+            <param name="wkom"></param>
+        </member>
+        <member name="M:CommonLib.RemotingIpc.RegCliObj``1(System.String)">
+            <summary>
+            客户端注册指定的服务
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="uri"></param>
+        </member>
+        <member name="M:CommonLib.RemotingIpc.GetRemoteObject``1(System.String,System.String)">
+            <summary>
+            获取远程对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="portName"></param>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CommonLib.EndPointWrap">
+            <summary>
+            终结点与消息的封装类
+            </summary>
+        </member>
+        <member name="M:CommonLib.EndPointWrap.#ctor(System.Net.EndPoint,CommonLib.MsgClass)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="ep"></param>
+            <param name="msg"></param>
+        </member>
+        <member name="P:CommonLib.EndPointWrap.EndPoint">
+            <summary>
+            终结点
+            </summary>
+        </member>
+        <member name="P:CommonLib.EndPointWrap.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="T:CommonLib.BroadcastEventArgs">
+            <summary>
+            广播事件参数类
+            </summary>
+        </member>
+        <member name="M:CommonLib.BroadcastEventArgs.#ctor(System.Net.IPEndPoint,System.Byte[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="client"></param>
+            <param name="data"></param>
+        </member>
+        <member name="P:CommonLib.BroadcastEventArgs.Client">
+            <summary>
+            消息来源
+            </summary>
+        </member>
+        <member name="P:CommonLib.BroadcastEventArgs.Data">
+            <summary>
+            消息数据
+            </summary>
+        </member>
+        <member name="T:CommonLib.IRemoteObject">
+            <summary>
+            远程对象接口
+            </summary>
+        </member>
+        <member name="M:CommonLib.IRemoteObject.Broadcast(CommonLib.BroadcastEventArgs)">
+            <summary>
+            发送广播
+            </summary>
+            <param name="arg"></param>
+        </member>
+        <member name="E:CommonLib.IRemoteObject.Broadcasting">
+            <summary>
+            广播事件
+            </summary>
+        </member>
+        <member name="T:CommonLib.BroadcastEvent">
+            <summary>
+             广播事件类(终极类，即不可被继承)
+            </summary>
+        </member>
+        <member name="M:CommonLib.BroadcastEvent.Broadcast(CommonLib.BroadcastEventArgs)">
+            <summary>
+            发送广播
+            </summary>
+            <param name="arg"></param>
+        </member>
+        <member name="M:CommonLib.BroadcastEvent.InitializeLifetimeService">
+            <summary>
+            重载InitializeLifetimeService
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:CommonLib.BroadcastEvent.Broadcasting">
+            <summary>
+            广播事件
+            </summary>
+        </member>
+        <member name="T:CommonLib.RemoteObjectWrapper">
+            <summary>
+            远程对象包装类
+            </summary>
+        </member>
+        <member name="M:CommonLib.RemoteObjectWrapper.WrapperBroadMessage(System.Object,CommonLib.BroadcastEventArgs)">
+            <summary>
+            发送广播消息的包装函数
+            </summary>
+            <param name="sender"></param>
+            <param name="arg"></param>
+        </member>
+        <member name="M:CommonLib.RemoteObjectWrapper.InitializeLifetimeService">
+            <summary>
+            重载生命周期函数，使之无限长
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:CommonLib.RemoteObjectWrapper.WrapperBroadcastMessageEvent">
+            <summary>
+            远程对象包装对象的广播消息事件
+            </summary>
+        </member>
+        <member name="T:CommonLib.RegisterServer`1">
+            <summary>
+            服务注册器
+            </summary>
+        </member>
+        <member name="M:CommonLib.RegisterServer`1.IsRegister(System.String)">
+            <summary>
+            是否已经注册指定的服务
+            </summary>
+        </member>
+        <member name="M:CommonLib.RegisterServer`1.#ctor">
+            <summary>
+            构造服务的字典容器
+            </summary>
+        </member>
+        <member name="M:CommonLib.RegisterServer`1.Finalize">
+            <summary>
+            注销当前服务注册器所有已经正在运行的服务
+            </summary>
+        </member>
+        <member name="M:CommonLib.RegisterServer`1.Register(`0)">
+            <summary>
+            往当前服务注册器中注册默认的服务
+            </summary>
+            <param name="sharedObject"></param>
+        </member>
+        <member name="M:CommonLib.RegisterServer`1.Register(`0,System.String)">
+            <summary>
+            往当前服务注册器中注册指定的服务
+            </summary>
+            <param name="sharedObject"></param>
+            <param name="ObjURI"></param>
+        </member>
+        <member name="M:CommonLib.RegisterServer`1.Unregister(System.String)">
+            <summary>
+            在当前服务注册器中注销指定的服务
+            </summary>
+            <param name="ObjURI"></param>
+        </member>
+        <member name="P:CommonLib.RegisterServer`1.IsStarted">
+            <summary>
+            当前服务注册器中是否存在正在运行的服务
+            </summary>
+        </member>
+        <member name="T:CommonLib.Client`1">
+            <summary>
+            TCP协议客户端泛型类(服务器是单件模式的发送端)
+            </summary>
+        </member>
+        <member name="M:CommonLib.Client`1.#ctor">
+            <summary>
+            默认的构造函数
+            </summary>
+        </member>
+        <member name="M:CommonLib.Client`1.#ctor(System.String)">
+            <summary>
+            指定服务的构造函数
+            </summary>
+        </member>
+        <member name="M:CommonLib.Client`1.Finalize">
+            <summary>
+            注销信道
+            </summary>
+        </member>
+        <member name="P:CommonLib.Client`1.Server">
+            <summary>
+            事件中心服务器IP地址
+            </summary>
+        </member>
+        <member name="P:CommonLib.Client`1.Port">
+            <summary>
+            服务器端口号
+            </summary>
+        </member>
+        <member name="P:CommonLib.Client`1.SharedObject">
+            <summary>
+            远程共享的对象
+            </summary>
+        </member>
+        <member name="T:CommonLib.MessageServer`1">
+            <summary>
+            消息服务类
+            </summary>
+        </member>
+        <member name="M:CommonLib.MessageServer`1.Init(`0)">
+            <summary>
+            根据指定的配置文档(ServerCfg.config)启动服务
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:CommonLib.MessageServer`1.Intialize(`0)">
+            <summary>
+            根据默认的配置文档(app.config)启动服务
+            </summary>
+            <param name="msg"></param>
+        </member>
+        <member name="M:CommonLib.MessageServer`1.Dispose(CommonLib.RegisterServer{`0})">
+            <summary>
+            注销指定的服务
+            </summary>
+            <param name="reg"></param>
+        </member>
+        <member name="T:CommonLib.OfflineHandler">
+            <summary>
+            下线委托
+            </summary>
+            <param name="sender"></param>
+            <param name="client"></param>
+        </member>
+        <member name="T:CommonLib.ReceiveHandler">
+            <summary>
+            接收委托
+            </summary>
+            <param name="client"></param>
+            <param name="data"></param>
+        </member>
+        <member name="T:CommonLib.Common">
+            <summary>
+            共有类
+            </summary>
+        </member>
+        <member name="F:CommonLib.Common.BufferSize">
+            <summary>
+            缓冲区的大小
+            </summary>
+        </member>
+        <member name="F:CommonLib.Common.ReceiveTimeout">
+            <summary>
+            接收的超时时间
+            </summary>
+        </member>
+        <member name="F:CommonLib.Common.Received">
+            <summary>
+            已收标识
+            </summary>
+        </member>
+        <member name="F:CommonLib.Common.HadReaded">
+            <summary>
+            已读标识
+            </summary>
+        </member>
+        <member name="F:CommonLib.Common.HeartBeat">
+            <summary>
+            心跳标识
+            </summary>
+        </member>
+        <member name="M:CommonLib.Common.GetMsg(System.Byte[])">
+            <summary>
+            消息解包
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonLib.Common.GetData(CommonLib.MsgClass)">
+            <summary>
+            消息封包
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonLib.Common.GetBytes(System.String,System.Text.Encoding)">
+            <summary>
+            GetBytes
+            </summary>
+            <param name="msg"></param>
+            <param name="encoder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonLib.Common.GetString(System.Byte[],System.Int32,System.Int32,System.Text.Encoding)">
+            <summary>
+            GetString
+            </summary>
+            <param name="data"></param>
+            <param name="index"></param>
+            <param name="length"></param>
+            <param name="encoder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonLib.Common.GetString(System.Byte[],System.Int32,System.Text.Encoding)">
+            <summary>
+            GetString
+            </summary>
+            <param name="data"></param>
+            <param name="offset"></param>
+            <param name="encoder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonLib.Common.CRC16(System.String,System.Int32)">
+            <summary>
+            CRC16
+            </summary>
+            <param name="data"></param>
+            <param name="dataLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommonLib.Common.CRC16(System.Byte[],System.Int32)">
+            <summary>
+            CRC16
+            </summary>
+            <param name="input"></param>
+            <param name="dataLength"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

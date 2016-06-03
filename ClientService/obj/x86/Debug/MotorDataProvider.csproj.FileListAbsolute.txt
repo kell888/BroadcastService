@@ -1,0 +1,11 @@
+F:\DataGenerator\MotorDataProvider\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\DataGenerator\MotorDataProvider\obj\x86\Debug\MotorDataProvider.Form1.resources
+F:\DataGenerator\MotorDataProvider\obj\x86\Debug\MotorDataProvider.Properties.Resources.resources
+F:\DataGenerator\MotorDataProvider\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+F:\DataGenerator\MotorDataProvider\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+F:\DataGenerator\MotorDataProvider\bin\Debug\MotorDataProvider.exe
+F:\DataGenerator\MotorDataProvider\bin\Debug\MotorDataProvider.pdb
+F:\DataGenerator\MotorDataProvider\obj\x86\Debug\MotorDataProvider.exe
+F:\DataGenerator\MotorDataProvider\obj\x86\Debug\MotorDataProvider.pdb
+F:\客户端消息服务\obj\x86\Debug\MotorDataProvider.exe
+F:\客户端消息服务\obj\x86\Debug\MotorDataProvider.pdb
